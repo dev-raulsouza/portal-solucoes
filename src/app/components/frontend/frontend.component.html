@@ -1,0 +1,158 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 order-md-1">
+            <h4 class="mb-3">Informações do Sistema</h4>
+            <form class="needs-validation">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label>Tipo de sistema:</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="sistemaInterno"
+                                (change)="checkInterno($event)">
+                            <label class="form-check-label">
+                                Interno
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="sistemaExterno"
+                                (change)="checkExterno($event)">
+                            <label class="form-check-label">
+                                Externo
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container" style="text-align: center;">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<div class="container" *ngIf="tipoFront">
+    <div class="row">
+        <div class="col-md-12 order-md-1">
+            <h4 class="mb-3">Informações do Frontend</h4>
+            <form class="needs-validation">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label>Tipo de frontend:</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="frontEstatico"
+                                (change)="checkFrontEstatico($event)">
+                            <label class="form-check-label">
+                                Estático
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="frontDinamico"
+                                (change)="checkFrontDinamico($event)">
+                            <label class="form-check-label">
+                                Dinâmico
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="container" style="text-align: center;">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<div class="container" *ngIf="frontEstatico">
+    <div class="row">
+        <div class="col-md-12 order-md-1">
+            <h4 class="mb-3">Estático</h4>
+            <form class="needs-validation">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label>Qual o Framework adotado?</label>
+                        <select class="form-select" (change)="getFramework($event)">
+                            <option value="first">Selecione...</option>
+                            <option value="ajs">AngularJS</option>
+                            <option value="angular">Angular</option>
+                            <option value="react">React</option>
+                            <option value="nuxt">Nuxt</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="container" style="text-align: center;">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container" *ngIf="frontDinamico">
+    <div class="row">
+        <div class="col-md-12 order-md-1">
+            <h4 class="mb-3">Dinâmico</h4>
+            <form class="needs-validation">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label>Qual o Framework adotado?</label>
+                        <select class="form-select" (change)="getFramework($event)">
+                            <option value="first">Selecione...</option>
+                            <option value="ajs">Thymeleaf</option>
+                            <option value="angular">PHP</option>
+                            <option value="angular">Wordpress</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="container" style="text-align: center;">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<br>
+
+<div class="container" *ngIf="opcaoContainer">
+    <div class="row">
+        <div class="col-md-12 order-md-1">
+            <h4 class="mb-3">A solução precisa ser containerizada?</h4>
+            <p class="lead">Caso a sua solução precise de um webserver específico, como NGINX, ou outro, a sua solução
+                pode
+                ser containerizada, a fim de personalização.
+            </p>
+            <form class="needs-validation">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="frontEstatico"
+                                (change)="ehContainer($event)">
+                            <label class="form-check-label">
+                                Sim
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="frontDinamico"
+                                (change)="nEhContainer($event)">
+                            <label class="form-check-label">
+                                Não
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="container" style="text-align: center;">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="container" style="text-align: center;">
+    <a>
+        <button class="btn btn-primary btn-lg" *ngIf="btnShow" (click)="solicitaArquivo()">
+            Finalizar
+        </button>
+    </a>
+</div>

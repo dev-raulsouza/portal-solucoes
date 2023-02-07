@@ -1,0 +1,25 @@
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Tipo de Solução</th>
+            </tr>
+            <tr>
+                <div class="form-outline">
+                    <input type="text" name="search" id="search" [(ngModel)]="searchText" class="form-control"
+                        placeholder="Procurar Solução..." aria-label="Search" />
+                </div>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let i of re | filter:searchText | paginate: { itemsPerPage: contador, currentPage: pag }">
+                <td (click)="teste(i[1])" style="cursor: pointer; text-decoration: underline; color: blue; ">
+                    {{i[1]}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="container" style="align-items: center;">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
